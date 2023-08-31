@@ -1,23 +1,18 @@
-"use client"
+"use client";
 
-import { CldImage   } from "next-cloudinary";
+import { CldImage } from "next-cloudinary";
 import { UploadResult } from "../page";
 import { Button } from "@/components/ui/button";
+import Heart from "@/components/Heart";
 
 
-const CloudinaryImage = (props : any) => {
- 
+const CloudinaryImage = (props: any) => {
   return (
-   
-     
-      <CldImage
+    <div className="relative">
+      <CldImage {...props} />
+      <Heart  className = "absolute w-10  top-2 right-2"/>
+    </div>
+  );
+};
 
-        {...props}
-        
-          />
-        
-    
-  )
-}
-
-export default CloudinaryImage
+export default CloudinaryImage;

@@ -12,7 +12,7 @@ const GalleryPage = async () => {
  const results = await  cloudinary.v2.search
   .expression('resource_type:image')
   .sort_by('created_at','desc')
-  .max_results(5)
+  .max_results(10)
 .execute() as {resources: SearchResult[]}
 
   console.log(results);
@@ -28,6 +28,7 @@ const GalleryPage = async () => {
     <div className="grid grid-cols-4  gap-4">
 
     {results.resources.map((result) => (
+      
       <CloudinaryImage key = {result.public_id} width = "400" height = 
       '300'
       alt = "an image of something"
