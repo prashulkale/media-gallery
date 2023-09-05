@@ -33,12 +33,11 @@ const [resources, setResources] = useState(initialResources)
        onUnheart = ((unheartedResources) => {
         setResources((currentResources) => {
           currentResources.filter(
-
             resources.public_id !== unheartedResource.public_id;
-
           )
         })
        })
+
        />
 
     ))}
