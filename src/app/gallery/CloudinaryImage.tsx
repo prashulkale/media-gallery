@@ -9,7 +9,7 @@ import FullHeart from "@/components/fullHeart";
 
 
 
-const CloudinaryImage = (props: any & {imageData :  SearchResult , path : string}) => {
+const CloudinaryImage = (props: any & {imageData :  SearchResult ,onUnheart : ( onUnheartedResource : SearchResult)=> void,  path : string}) => {
   const [Transition , startTransition] = useTransition();
   const {imageData} = props;
  
