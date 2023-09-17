@@ -1,6 +1,6 @@
 "use client";
 
-import { CldImage } from "next-cloudinary";
+import { CldImage, CldImageProps } from "next-cloudinary";
 import Heart from "@/components/Heart";
 import { MarkAsFavorite } from "./action";
 import { useTransition ,useState } from "react";
@@ -9,9 +9,9 @@ import FullHeart from "@/components/fullHeart";
 
 
 
-const CloudinaryImage = (props: any & {imageData :  SearchResult ,onUnheart : ( onUnheartedResource : SearchResult)=> void,  path : string}) => {
+const CloudinaryImage = (props:{imageData :  SearchResult ,onUnheart ?: ( onUnheartedResource : SearchResult)=> void} & Omit<CldImageProps, "src" >) => {
   const [Transition , startTransition] = useTransition();
-  const {imageData} = props;
+  const {imageData , unhearted} = props;
  
   const [isFavorited, setIsFavorited] = useState(imageData.tags.includes("favorite"))
   return (
@@ -22,12 +22,13 @@ const CloudinaryImage = (props: any & {imageData :  SearchResult ,onUnheart : ( 
 
      ?    <FullHeart
      onClick = {()=> {
+      unhearted?.(imageData)
        setIsFavorited(false)
   startTransition(()=>{
     MarkAsFavorite(imageData.public_id , false);
   });        
      }}
-   className = "absolute w-6 h-6cursor-pointer hover:text-red-500  top-2 right-2"/>
+   className = "absolute w-6 h-6 cursor-pointer hover:text-red-500  top-2 right-2"/>
 
      
     : <Heart 
