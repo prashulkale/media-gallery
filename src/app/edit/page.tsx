@@ -36,11 +36,11 @@ const EditPage = ({
         <div className="flex flex-col">
   <Button onClick={() => {  
     setTransformation("generative-fill"); 
-    // setPrompt(pendingPrompt);
+    setPrompt(pendingPrompt);
   }}>
     Generative Fill
   </Button>
-  {/* <input type="text" value={pendingPrompt} onChange={e => setPendingPrompt(e.currentTarget.value )} /> */}
+  <input type="text" value={pendingPrompt} onChange={e => setPendingPrompt(e.currentTarget.value )} />
 </div>
 
       </div>
@@ -55,7 +55,7 @@ const EditPage = ({
                 {
                   prompt 
                 }
-              }
+              } 
               crop="pad"
               width={500}
               height={400}

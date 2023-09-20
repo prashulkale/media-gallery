@@ -48,6 +48,8 @@ function getColumns(colIndex : number ) {
   results.resources
  }
  />
+
+
 </div>
 
     </div>

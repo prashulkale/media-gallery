@@ -24,6 +24,7 @@ const SearchFrom = () => {
           id="tag-name"
           value={tagName}
           className="col-span-3"
+          placeholder="search"
         />
         <Button type="submit" >Search</Button>
       </div>

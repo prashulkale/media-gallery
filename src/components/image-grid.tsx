@@ -5,10 +5,14 @@ const MAX_COLUMNS = 4
 export function ImageGrid({images } : {images : SearchResult[]}){
   
 function getColumns(colIndex : number ) {
-
-
   return images.filter((resource, idx ) => idx % MAX_COLUMNS === colIndex)
 }
+
+var the ;
+
+
+
+
  return (
     <div className="grid grid-cols-4  gap-4">
 {[ getColumns(0),
@@ -16,11 +20,11 @@ function getColumns(colIndex : number ) {
     getColumns(2),
     getColumns(3),
     getColumns(4 )
-].map((cloumn  , idx)=> <div  key = "idx" className = "flex flex-col gap-4" >  
-    
+].map((cloumn  , idx)=>( <div  key = {idx} className = "flex flex-col gap-4" >  
+
     {cloumn.map((result) => (
-      
-      <CloudinaryImage 
+      <>
+       <CloudinaryImage 
       
       key = {result.public_id}
       width = "400" 
@@ -29,9 +33,15 @@ function getColumns(colIndex : number ) {
       imageData = {result}
        
        />
+      
+      </>
+     
 
-    ))}
-</div>)}
+       ))}
+</div>  
+)
+
+)}
     </div>
   )
 }

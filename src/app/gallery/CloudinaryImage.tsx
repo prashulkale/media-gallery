@@ -15,12 +15,15 @@ import { Button } from "@/components/ui/button";
 const CloudinaryImage = (props:{imageData :  SearchResult ,onUnheart ?: ( onUnheartedResource : SearchResult)=> void} & Omit<CldImageProps, "src" >) => {
   const [Transition , startTransition] = useTransition(); 
   const {imageData , unhearted} = props;
- 
+
   const [isFavorited, setIsFavorited] = useState(imageData.tags.includes("favorite"))
   return (
     <div className="relative">
       <CldImage {...props} src={imageData.public_id} />
-      <Button className="absolute w-4 h-3 cursor-pointer hover:text-red-500  top-6 right-2"  asChild > <Link href={`/edit?publicId=${ encodeURIComponent(imageData.public_id) }`}>  <EditIcon/>  </Link> </Button>
+      <Button  asChild  className="absolute w-4 h-3 cursor-pointer hover:text-red-500  top-6 right-2" >
+         <Link href={`/edit?publicId=${ encodeURIComponent(imageData.public_id) }`}>  <EditIcon/>  </Link> 
+      
+      </Button>
 
      {    isFavorited  
 
